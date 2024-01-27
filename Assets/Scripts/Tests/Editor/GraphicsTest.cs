@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 namespace Tests.Editor
 {
@@ -17,7 +16,6 @@ namespace Tests.Editor
         [TestCaseSource(nameof(_colorsTestCase))]
         public void GraphicsBlitTest(Color color)
         {
-
             var src = new Texture2D(1, 1);
             src.SetPixel(0, 0, color);
             src.Apply();
@@ -29,7 +27,7 @@ namespace Tests.Editor
             textureForRead.ReadPixels(new Rect(0, 0, 1, 1), 0, 0);
             textureForRead.Apply();
 
-            Assert.AreEqual(color ,textureForRead.GetPixel(0, 0));
+            Assert.AreEqual(color, textureForRead.GetPixel(0, 0));
         }
     }
 }
